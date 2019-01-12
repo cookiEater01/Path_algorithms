@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1547283346051.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4289291276",
+    "id" : "56266C5B",
+    "lastKnownWriteTime" : 1547283358,
+    "last_content_update" : 1547283358941,
+    "path" : "~/GitHub/Path_algorithms/dfs.R",
+    "project_path" : "dfs.R",
+    "properties" : {
+        "cursorPosition" : "55,1",
+        "scrollLine" : "24",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
