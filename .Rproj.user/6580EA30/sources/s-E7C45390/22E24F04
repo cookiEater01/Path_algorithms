@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1547285604617.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "22E24F04",
+    "lastKnownWriteTime" : 1547286977,
+    "last_content_update" : 1547286977088,
+    "path" : "~/GitHub/Path_algorithms/test.R",
+    "project_path" : "test.R",
+    "properties" : {
+        "cursorPosition" : "68,31",
+        "scrollLine" : "58",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}
