@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1547284606180.000,
+    "created" : 1547307974906.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3124409652",
-    "id" : "CB3AAA89",
+    "hash" : "0",
+    "id" : "F68CA84B",
     "lastKnownWriteTime" : 1547300343,
-    "last_content_update" : 1547300343392,
+    "last_content_update" : 1547300343,
     "path" : "~/GitHub/Path_algorithms/modifyM.R",
     "project_path" : "modifyM.R",
     "properties" : {
@@ -17,7 +17,7 @@
         "tempName" : "Untitled1"
     },
     "relative_order" : 5,
-    "source_on_save" : true,
+    "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"
 }

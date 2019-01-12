@@ -1,17 +1,17 @@
-depth.first <- function(graph, startNode, endNodes)
+depth.first <- function(mtx, startNode, endNodes)
 {
-  if (is.null(rownames(graph)))
-    vNames <- 1:nrow(graph)
+  if (is.null(rownames(mtx)))
+    vNames <- 1:nrow(mtx)
   else
-    vNames <- rownames(graph)
+    vNames <- rownames(mtx)
   
   startNode <- which(vNames %in% startNode)
   endNodes <- which(vNames %in% endNodes)
   
   
   stack <- vector()
-  marked <- rep(FALSE, len = nrow(graph))
-  from <- rep(-1, len = nrow(graph))
+  marked <- rep(FALSE, len = nrow(mtx))
+  from <- rep(-1, len = nrow(mtx))
   
   marked[startNode] <- TRUE	
   stack <- c(stack, startNode)
@@ -37,7 +37,7 @@ depth.first <- function(graph, startNode, endNodes)
       }
     }
     
-    sel <- which(!is.na(graph[curNode,]) & !marked)
+    sel <- which(!is.na(mtx[curNode,]) & !marked)
     if (any(sel))
     {
       nextNode <- sel[1]
