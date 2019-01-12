@@ -15,7 +15,8 @@ finish <- finishPosition(data)
 finish
 screen <- plotLabyrinth(data)
 
-
+temp <- matrikaSosedov(data)
+write.csv(temp, "sosedje.csv")
 
 
 matrikaSosedov(data)

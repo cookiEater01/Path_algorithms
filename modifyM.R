@@ -15,9 +15,16 @@ finishPosition <- function(mx) {
 matrikaSosedov <- function(mx) {
   vel = nrow(mx) * ncol(mx)
   ms <- matrix(data=NA, nrow=vel, ncol=vel)
-  for (line in c(2:nrow(mx))) {
-    for (coll in c(2:ncol(mx))) {
-      if (mx[line, coll - 1] > 0 || mx[line, coll - 1] == -3 || mx[line, coll - 1] == -2) {
+  for (line in c(3:nrow(mx)-1)) {
+    for (coll in c(3:ncol(mx)-1)) {
+      prvi = mx[line, coll - 1] > 0
+      drugi = mx[line, coll - 1] == -3
+      tretji = mx[line, coll - 1] == -2
+      print(prvi)
+      print(drugi)
+      print(tretji)
+      if ((prvi || drugi) || tretji) {
+      #if (mx[line, coll - 1] > 0 || mx[line, coll - 1] == -3 || mx[line, coll - 1] == -2) {
         ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-1)+(coll-2)] = mx[line, coll - 1]
       }
       if (mx[line, coll + 1] > 0 || mx[line, coll + 1] == -3 || mx[line, coll + 1] == -2) {

@@ -5,19 +5,19 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "548946618",
+    "hash" : "0",
     "id" : "CB3AAA89",
-    "lastKnownWriteTime" : 1547295992,
-    "last_content_update" : 1547295992325,
+    "lastKnownWriteTime" : 1547297191,
+    "last_content_update" : 1547297191453,
     "path" : "~/GitHub/Path_algorithms/modifyM.R",
     "project_path" : "modifyM.R",
     "properties" : {
-        "cursorPosition" : "33,11",
-        "scrollLine" : "0",
+        "cursorPosition" : "19,0",
+        "scrollLine" : "5",
         "tempName" : "Untitled1"
     },
     "relative_order" : 5,
-    "source_on_save" : false,
+    "source_on_save" : true,
     "source_window" : "",
     "type" : "r_source"
 }
