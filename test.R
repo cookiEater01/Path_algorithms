@@ -82,3 +82,4 @@ depth.firt(graph, "s", c("g","k","l"))
 
 vNames <- rownames(graph)
 a <- which(vNames %in% "s")
+a
