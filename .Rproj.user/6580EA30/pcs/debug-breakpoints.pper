@@ -45,21 +45,6 @@
                 "path" : "~/GitHub/Path_algorithms/dfs.R",
                 "state" : 1,
                 "type" : 0
-            },
-            {
-                "editor_line_number" : 20,
-                "editor_state" : 1,
-                "function_name" : "matrikaSosedov",
-                "function_steps" : "4,4,2,4,2",
-                "id" : 11,
-                "is_package_breakpoint" : false,
-                "is_pending_debug_completion" : false,
-                "line_number" : 20,
-                "needs_updated_steps" : false,
-                "package_name" : "",
-                "path" : "~/GitHub/Path_algorithms/modifyM.R",
-                "state" : 1,
-                "type" : 0
             }
         ]
     }
