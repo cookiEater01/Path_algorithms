@@ -1,6 +1,6 @@
 rename <- function(mx) {
-  colnames(mx) <- paste("p", 1:ncol(mx), sep="")
-  rownames(mx) <- paste("p", 1:nrow(mx), sep="")
+  colnames(mx) <- paste("", 1:ncol(mx), sep="")
+  rownames(mx) <- paste("", 1:nrow(mx), sep="")
   return(mx)
 }
 
@@ -17,18 +17,29 @@ matrikaSosedov <- function(mx) {
   ms <- matrix(data=NA, nrow=vel, ncol=vel)
   for (line in c(3:nrow(mx)-1)) {
     for (coll in c(3:ncol(mx)-1)) {
-      trenutna = ms[line, coll] != -1
-      if ((mx[line, coll - 1] > 0 || mx[line, coll - 1] == -3 || mx[line, coll - 1] == -2) && (trenutna)) {
-        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-1)+(coll-2)] = mx[line, coll - 1]
+      trenutna = mx[line, coll] != -1
+      enprej = mx[line, coll - 1] 
+      ennaprej = mx[line, coll + 1]
+      engor = mx[line-1, coll]
+      endol = mx[line+1, coll]
+      
+      trenPoz = nrow(mx)*(line-1)+coll
+      prejPoz = nrow(mx)*(line-1)+coll-1
+      naprejPoz = nrow(mx)*(line-1)+coll+1
+      gorPoz = nrow(mx)*(line-2)+coll
+      dolPoz = nrow(mx)*(line)+coll
+      
+      if ((enprej > 0 || enprej == -3 || enprej == -2) && (trenutna)) {
+        ms[trenPoz, prejPoz] = enprej
       }
-      if ((mx[line, coll + 1] > 0 || mx[line, coll + 1] == -3 || mx[line, coll + 1] == -2) && trenutna) {
-        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-1)+(coll)] = mx[line, coll + 1]
+      if ((ennaprej > 0 || ennaprej == -3 || ennaprej == -2) && trenutna) {
+        ms[trenPoz, naprejPoz] = ennaprej
       }
-      if ((mx[line - 1, coll] > 0 || mx[line - 1, coll] == -3 || mx[line - 1, coll] == -2) && trenutna) {
-        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-2)+(coll-1)] = mx[line - 1, coll]
+      if ((engor > 0 || engor == -3 || engor == -2) && trenutna) {
+        ms[trenPoz, gorPoz] = engor
       }
-      if ((mx[line + 1, coll] > 0 || mx[line + 1, coll] == -3 || mx[line + 1, coll] == -2) && trenutna) {
-        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line)+(coll-1)] = mx[line + 1, coll]
+      if ((endol > 0 || endol == -3 || endol == -2) && trenutna) {
+        ms[trenPoz, dolPoz] = endol
       }
     }
   }

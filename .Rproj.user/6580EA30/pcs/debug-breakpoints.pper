@@ -32,14 +32,14 @@
                 "type" : 1
             },
             {
-                "editor_line_number" : 12,
+                "editor_line_number" : 8,
                 "editor_state" : 1,
                 "function_name" : "depth.first",
                 "function_steps" : "3",
-                "id" : 8,
+                "id" : 23,
                 "is_package_breakpoint" : false,
                 "is_pending_debug_completion" : false,
-                "line_number" : 12,
+                "line_number" : 8,
                 "needs_updated_steps" : false,
                 "package_name" : "",
                 "path" : "~/GitHub/Path_algorithms/dfs.R",

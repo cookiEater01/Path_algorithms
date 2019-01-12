@@ -13,14 +13,14 @@ start <- startPosition(data)
 start
 finish <- finishPosition(data)
 finish
+
 screen <- plotLabyrinth(data)
 
-temp <- matrikaSosedov(data)
+sosedje <- matrikaSosedov(data)
+colnames(sosedje) <- paste("", 1:ncol(sosedje), sep="")
+rownames(sosedje) <- paste("", 1:nrow(sosedje), sep="")
 
+startN = row.names(start)
+finishN = row.names(finish)
 
-write.table(temp, sep="\t", "clipboard")
-
-
-matrikaSosedov(data)
-
-depth.first(data, -2, -3)
+depth.first(sosedje, start, finish)
