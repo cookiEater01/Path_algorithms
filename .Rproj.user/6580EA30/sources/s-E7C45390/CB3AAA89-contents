@@ -15,8 +15,8 @@ finishPosition <- function(mx) {
 matrikaSosedov <- function(mx) {
   vel = nrow(mx) * ncol(mx)
   ms <- matrix(data=NA, nrow=vel, ncol=vel)
-  for (line in c(1:nrow(mx))) {
-    for (coll in c(1:ncol(mx))) {
+  for (line in c(2:nrow(mx))) {
+    for (coll in c(2:ncol(mx))) {
        if (mx[line, coll - 1] > 0) {
          
        }
