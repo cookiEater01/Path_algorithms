@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1547283669247.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B5C0387D",
+    "lastKnownWriteTime" : 1547284151,
+    "last_content_update" : 1547284151848,
+    "path" : "~/GitHub/Path_algorithms/izris.R",
+    "project_path" : "izris.R",
+    "properties" : {
+        "cursorPosition" : "30,1",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
