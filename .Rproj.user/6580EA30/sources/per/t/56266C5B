@@ -5,19 +5,19 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3051221487",
+    "hash" : "2319105012",
     "id" : "56266C5B",
-    "lastKnownWriteTime" : 1547309468,
-    "last_content_update" : 1547309468518,
+    "lastKnownWriteTime" : 1547312158,
+    "last_content_update" : 1547312158548,
     "path" : "~/GitHub/Path_algorithms/dfs.R",
     "project_path" : "dfs.R",
     "properties" : {
-        "cursorPosition" : "29,47",
-        "scrollLine" : "2",
+        "cursorPosition" : "8,0",
+        "scrollLine" : "0",
         "tempName" : "Untitled1"
     },
     "relative_order" : 3,
-    "source_on_save" : false,
+    "source_on_save" : true,
     "source_window" : "",
     "type" : "r_source"
 }

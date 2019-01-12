@@ -7,6 +7,7 @@ depth.first <- function(mtx, startNode, endNodes)
   
   startNode <- which(vNames %in% startNode)
   endNodes <- which(vNames %in% endNodes)
+  print(endNodes)
   
   #število obdelanih vozlišč
   stVozlisc <- 0
