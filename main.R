@@ -15,6 +15,9 @@ finish <- finishPosition(data)
 finish
 screen <- plotLabyrinth(data)
 
+
+
+
 matrikaSosedov(data)
 
 depth.first(data, -2, -3)

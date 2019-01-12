@@ -17,9 +17,12 @@ matrikaSosedov <- function(mx) {
   ms <- matrix(data=NA, nrow=vel, ncol=vel)
   for (line in c(2:nrow(mx))) {
     for (coll in c(2:ncol(mx))) {
-       if (mx[line, coll - 1] > 0) {
-         
-       }
+      if (mx[line, coll - 1] > 0 || mx[line, coll - 1] == -3 || mx[line, coll - 1] == -2) {
+        ms[nrow(mx)*(line-1)+(coll-1), ] = mx[line, coll - 1]
+      }
+      if (mx[line, coll + 1] > 0 || mx[line, coll + 1] == -3 || mx[line, coll + 1] == -2) {
+        ms[nrow(mx)*(line-1)+(coll-1)] = mx[line, coll + 1]
+      }
     }
   }
 }
