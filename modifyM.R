@@ -24,11 +24,12 @@ matrikaSosedov <- function(mx) {
         ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-1)+(coll)] = mx[line, coll + 1]
       }
       if (mx[line - 1, coll] > 0 || mx[line - 1, coll] == -3 || mx[line - 1, coll] == -2) {
-        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-1)+(coll-2)] = mx[line - 1, coll]
+        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-2)+(coll-1)] = mx[line - 1, coll]
       }
       if (mx[line + 1, coll] > 0 || mx[line + 1, coll] == -3 || mx[line + 1, coll] == -2) {
-        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line-1)+(coll)] = mx[line + 1, coll]
+        ms[nrow(mx)*(line-1)+(coll-1), nrow(mx)*(line)+(coll-1)] = mx[line + 1, coll]
       }
     }
   }
+  return(ms)
 }
