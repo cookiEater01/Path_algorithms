@@ -8,6 +8,8 @@ depth.first <- function(mtx, startNode, endNodes)
   startNode <- which(vNames %in% startNode)
   endNodes <- which(vNames %in% endNodes)
   
+  #število obdelanih vozlišč
+  stVozlisc <- 0
   
   stack <- vector()
   marked <- rep(FALSE, len = nrow(mtx))
@@ -25,6 +27,7 @@ depth.first <- function(mtx, startNode, endNodes)
     if (curNode %in% endNodes)
     {
       print(paste("Resitev DFS v vozliscu", vNames[curNode]))
+      print(paste("Stevilo obravnavanih vozlisc:", stVozlisc))
       
       path <- vNames[curNode]
       while (TRUE)
@@ -44,6 +47,7 @@ depth.first <- function(mtx, startNode, endNodes)
       marked[nextNode] <- TRUE
       from[nextNode] <- curNode
       stack <- c(stack, nextNode)
+      stVozlisc <- stVozlisc + 1
       
       print(paste("Polagam na sklad vozlisce", vNames[nextNode]))
     }
