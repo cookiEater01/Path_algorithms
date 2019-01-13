@@ -24,7 +24,6 @@ breadth.first <- function(graph, startNode, endNodes, org)
   {
     curNode <- queue[1]
     queue <- queue[-1]
-    stNaPoti<- stNaPoti - 1
     org <- removeCoordB(org, vNames[curNode],ncol(graph))
     plotLabyrinth(org)
     Sys.sleep(0.05)
