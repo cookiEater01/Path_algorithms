@@ -45,21 +45,6 @@
                 "path" : "~/GitHub/Path_algorithms/dfs.R",
                 "state" : 1,
                 "type" : 0
-            },
-            {
-                "editor_line_number" : 91,
-                "editor_state" : 1,
-                "function_name" : "convertCoord",
-                "function_steps" : "2",
-                "id" : 9,
-                "is_package_breakpoint" : false,
-                "is_pending_debug_completion" : false,
-                "line_number" : 91,
-                "needs_updated_steps" : false,
-                "package_name" : "",
-                "path" : "~/GitHub/Path_algorithms/modifyM.R",
-                "state" : 1,
-                "type" : 0
             }
         ]
     }

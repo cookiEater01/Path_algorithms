@@ -15,7 +15,7 @@ library("gsubfn")
 ###############################################################################
 
 
-data <- read.table("labyrinth_2.txt", sep=",", header=F)
+data <- read.table("labyrinth_1.txt", sep=",", header=F)
 data <- as.matrix(data)
 
 #preimenujemo zaradi lažjega branja
@@ -56,6 +56,9 @@ sosedje <- rename(sosedje)
 list[pot,dfs] <- depth.first(sosedje, trueStart, trueFinish, data)
 
 f <- convertCoord(dfs, ncol(sosedje))
+
+print(paste("Stevilo vozlisc na poti:", nrow(f)))
+
 pathMatrixes(pot, f)
 #izpišemo rešitev
 setsOfCoords(f)
@@ -69,8 +72,10 @@ setsOfCoords(f)
 #naredimo bfs
 list[pot,bfs] <- breadth.first(sosedje, trueStart, trueFinish, data)
 
-
 g <- convertCoord(bfs, ncol(sosedje))
+
+print(paste("Stevilo vozlisc na poti:", nrow(g)))
+
 pathMatrixes(pot,g)
 #plotLabyrinth(pathMatrixes(pot,g))
 
@@ -85,4 +90,9 @@ setsOfCoords(g)
 list[pot, idfs] <- iter.deep(sosedje, trueStart, trueFinish, data)
 
 i <- convertCoord(idfs, ncol(sosedje))
+
+print(paste("Stevilo obravnavanih ogljisc: ", nrow(which(pot == -5, T))))
+print(paste("Stevilo vozlisc na poti:", nrow(i)))
+
+
 pathMatrixes(pot,i)

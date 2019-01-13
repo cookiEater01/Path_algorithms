@@ -10,8 +10,6 @@ breadth.first <- function(graph, startNode, endNodes, org)
   
   #število obdelanih vozlišč
   stVozlisc <- 1
-  #št premikov na poti, brez prvega in zadnjega
-  stNaPoti <- -1
   
   queue <- vector()
   marked <- rep(FALSE, len = nrow(graph))
@@ -39,7 +37,6 @@ breadth.first <- function(graph, startNode, endNodes, org)
       #print(paste("Resitev BFS v vozliscu", vNames[curNode]))
       print(paste("Resitev BFS v vozliscu", line, coll))
       print(paste("Stevilo obravnavanih vozlisc:", stVozlisc))
-      print(paste("Stevilo vozlisc na poti:", stNaPoti))
       
       coords <- vNames[curNode]
       #path <- vNames[curNode]
@@ -62,7 +59,6 @@ breadth.first <- function(graph, startNode, endNodes, org)
         from[nextNode] <- curNode
         queue <- c(queue, nextNode)
         stVozlisc <- stVozlisc + 1
-        stNaPoti <- stNaPoti + 1
         
         org <- changeCoordB(org, vNames[nextNode], ncol(graph))
         plotLabyrinth(org)

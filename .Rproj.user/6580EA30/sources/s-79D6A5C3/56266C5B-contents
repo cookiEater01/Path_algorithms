@@ -10,8 +10,6 @@ depth.first <- function(mtx, startNode, endNodes, org)
   
   #število obdelanih vozlišč
   stVozlisc <- 1
-  #št premikov na poti, brez prvega in zadnjega
-  stNaPoti <- -1
   
   stack <- vector()
   marked <- rep(FALSE, len = nrow(mtx))
@@ -32,7 +30,6 @@ depth.first <- function(mtx, startNode, endNodes, org)
       coll <- strtoi(vNames[curNode]) - ((line - 1) * sqrt(ncol(mtx)))
       print(paste("Resitev DFS v vozliscu", line, coll))
       print(paste("Stevilo obravnavanih vozlisc:", stVozlisc))
-      print(paste("Stevilo vozlisc na poti:", stNaPoti))
       
       #path <- vNames[curNode]
       coords <- vNames[curNode]
@@ -55,7 +52,6 @@ depth.first <- function(mtx, startNode, endNodes, org)
       from[nextNode] <- curNode
       stack <- c(stack, nextNode)
       stVozlisc <- stVozlisc + 1
-      stNaPoti <- stNaPoti + 1
       
       org <- changeCoord(org, vNames[nextNode], stack[length(stack) - 1], ncol(mtx))
       plotLabyrinth(org)
@@ -70,7 +66,6 @@ depth.first <- function(mtx, startNode, endNodes, org)
       plotLabyrinth(org)
       Sys.sleep(0.1)
       stack <- stack[-length(stack)]
-      stNaPoti <- stNaPoti - 1
       #print(paste("Odstranjujem s sklada vozlisce", vNames[curNode]))
     }
   }

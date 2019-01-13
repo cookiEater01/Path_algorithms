@@ -4,7 +4,7 @@ iter.deep <- function(graph, startNode, endNodes, org)
     vNames <- 1:nrow(graph)
   else
     vNames <- rownames(graph)
-  
+
   backup <- org
   
   startNode <- which(vNames %in% startNode)
@@ -13,7 +13,7 @@ iter.deep <- function(graph, startNode, endNodes, org)
   
   for (depthLimit in 0:nrow(graph))
   {
-    org <- backup
+    #org <- backup
     #print(paste("Globina iskanja je ", depthLimit))
     
     stack <- vector()
@@ -32,7 +32,11 @@ iter.deep <- function(graph, startNode, endNodes, org)
       if (curNode %in% endNodes)
       {
         plotLabyrinth(org)
-        print(paste("Resitev DFS v vozliscu", vNames[curNode]))
+        line <- ceiling(strtoi(vNames[curNode]) / sqrt(ncol(graph)))
+        coll <- strtoi(vNames[curNode]) - ((line - 1) * sqrt(ncol(graph)))
+        #print(paste("Resitev BFS v vozliscu", vNames[curNode]))
+        print(paste("Resitev DFS v vozliscu", line, coll))
+        #print(paste("Resitev DFS v vozliscu", vNames[curNode]))
         print(paste("Globina iskanja je ", depthLimit))
         
         #path <- vNames[curNode]
@@ -61,7 +65,7 @@ iter.deep <- function(graph, startNode, endNodes, org)
           marked[nextNode] <- TRUE
           from[nextNode] <- curNode
           stack <- c(stack, nextNode)
-          
+
           org <- changeCoordB(org, vNames[nextNode], ncol(graph))
           #plotLabyrinth(org)
           #Sys.sleep(0.1)
@@ -77,7 +81,6 @@ iter.deep <- function(graph, startNode, endNodes, org)
         #print(paste("Odstranjujem s sklada vozlisce", vNames[curNode]))
       }
     }
-    
     #print("-------------------------------------------------")
   }
 }
