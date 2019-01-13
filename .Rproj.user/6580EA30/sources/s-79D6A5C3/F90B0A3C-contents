@@ -114,6 +114,7 @@ list[pot,as] <- a.star(sosedje, trueStart, trueFinish, data)
 
 a <- convertCoord(as, ncol(sosedje))
 
+print(paste("Stevilo obravnavanih ogljisc: ", nrow(which(pot == -5, T))))
 print(paste("Stevilo vozlisc na poti:", nrow(a)))
 printPrice(a, data)
 
