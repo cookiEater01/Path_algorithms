@@ -2,7 +2,7 @@ source("dfs.R")
 source("izris.R")
 source("modifyM.R")
 
-data <- read.table("labyrinth_1.txt", sep=",", header=F)
+data <- read.table("labyrinth_3.txt", sep=",", header=F)
 data <- as.matrix(data)
 
 #preimenujemo zaradi lažjega branja
@@ -23,7 +23,7 @@ for (var in 1:nrow(finish)) {
   trueFinish <- c(trueFinish, toString(nrow(data) * (finish[var,1] - 1) + finish[var,2]))
 }
 
-#screen <- plotLabyrinth(data)
+screen <- plotLabyrinth(data)
 
 #naredimo matriko sosedov
 sosedje <- matrikaSosedov(data)
