@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1547398890508.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2350221717",
+    "id" : "FBC7656F",
+    "lastKnownWriteTime" : 1547398903,
+    "last_content_update" : 1547398903336,
+    "path" : "~/GitHub/Path_algorithms/aStar.R",
+    "project_path" : "aStar.R",
+    "properties" : {
+        "cursorPosition" : "70,0",
+        "scrollLine" : "17",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
