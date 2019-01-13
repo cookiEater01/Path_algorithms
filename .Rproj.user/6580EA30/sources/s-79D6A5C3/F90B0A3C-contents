@@ -15,7 +15,7 @@ library("gsubfn")
 ###############################################################################
 
 
-data <- read.table("labyrinth_1.txt", sep=",", header=F)
+data <- read.table("labyrinth_11.txt", sep=",", header=F)
 data <- as.matrix(data)
 
 #preimenujemo zaradi lažjega branja
