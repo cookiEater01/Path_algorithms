@@ -1,8 +1,18 @@
+###############################################################################
+#                               SOURCE                                        #
+###############################################################################
+
 source("dfs.R")
+source("bfs.R")
 source("izris.R")
 source("modifyM.R")
 
-data <- read.table("labyrinth_3.txt", sep=",", header=F)
+###############################################################################
+#                        PRIPRAVIMO PODATKE                                   #
+###############################################################################
+
+
+data <- read.table("labyrinth_1.txt", sep=",", header=F)
 data <- as.matrix(data)
 
 #preimenujemo zaradi lažjega branja
@@ -33,13 +43,42 @@ sosedje <- matrikaSosedov(data)
 #rownames(sosedje) <- c(1:ncol(sosedje))
 sosedje <- rename(sosedje)
 
+
+###############################################################################
+#                                 DFS                                         #
+###############################################################################
+
+
 #naredimo dfs
-dfs <- depth.first(sosedje, trueStart, trueFinish)
+dfs <- depth.first(sosedje, trueStart, trueFinish, data)
+
+f <- convertCoord(b, ncol(sosedje))
+
 #izpišemo rešitev
-setsOfCoords(dfs)
+setsOfCoords(f)
 
 #naredimo novo matriko z potjo
 pathM <- pathMatrix(dfs, ncol(data), nrow(data))
+
+#zdržimo še podatke splepih poti, starta in finisha
+pathM <- joinMatrixes(data, pathM)
+
+#izrisemo pot in labirint
+screen <- plotLabyrinth(pathM)
+
+
+###############################################################################
+#                                 BFS                                         #
+###############################################################################
+
+#naredimo bfs
+bfs <- breadth.first(sosedje, trueStart, trueFinish)
+bfs
+#izpišemo rešitev
+setsOfCoords(bfs)
+
+#naredimo novo matriko z potjo
+pathM <- pathMatrix(bfs, ncol(data), nrow(data))
 
 #zdržimo še podatke splepih poti, starta in finisha
 pathM <- joinMatrixes(data, pathM)
