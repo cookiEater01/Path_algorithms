@@ -28,7 +28,9 @@ depth.first <- function(mtx, startNode, endNodes)
     
     if (curNode %in% endNodes)
     {
-      print(paste("Resitev DFS v vozliscu", vNames[curNode]))
+      line <- ceiling(strtoi(vNames[curNode]) / sqrt(ncol(mtx)))
+      coll <- strtoi(vNames[curNode]) - ((line - 1) * sqrt(ncol(mtx)))
+      print(paste("Resitev DFS v vozliscu", line, coll))
       print(paste("Stevilo obravnavanih vozlisc:", stVozlisc))
       print(paste("Stevilo vozlisc na poti:", stNaPoti))
       
