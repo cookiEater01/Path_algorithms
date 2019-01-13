@@ -1,9 +1,11 @@
-iter.deep <- function(graph, startNode, endNodes)
+iter.deep <- function(graph, startNode, endNodes, org)
 {
   if (is.null(rownames(graph)))
     vNames <- 1:nrow(graph)
   else
     vNames <- rownames(graph)
+  
+  backup <- org
   
   startNode <- which(vNames %in% startNode)
   endNodes <- which(vNames %in% endNodes)
@@ -11,7 +13,8 @@ iter.deep <- function(graph, startNode, endNodes)
   
   for (depthLimit in 0:nrow(graph))
   {
-    print(paste("Globina iskanja je ", depthLimit))
+    org <- backup
+    #print(paste("Globina iskanja je ", depthLimit))
     
     stack <- vector()
     marked <- rep(FALSE, len = nrow(graph))
@@ -19,7 +22,7 @@ iter.deep <- function(graph, startNode, endNodes)
     
     marked[startNode] <- TRUE	
     stack <- c(stack, startNode)
-    print(paste("Polagam na sklad vozlisce", vNames[startNode]))
+    #print(paste("Polagam na sklad vozlisce", vNames[startNode]))
     
     
     while (length(stack) > 0)
@@ -28,7 +31,9 @@ iter.deep <- function(graph, startNode, endNodes)
       
       if (curNode %in% endNodes)
       {
+        plotLabyrinth(org)
         print(paste("Resitev DFS v vozliscu", vNames[curNode]))
+        print(paste("Globina iskanja je ", depthLimit))
         
         #path <- vNames[curNode]
         coords <- vNames[curNode]
@@ -38,7 +43,7 @@ iter.deep <- function(graph, startNode, endNodes)
           if (curNode != -1)
             coords <- c(coords, vNames[curNode])
           else
-            return(coords)
+            return(list(org,coords))
             #path <- paste(path, "<--", vNames[curNode])
           #else
             #return(path)
@@ -57,17 +62,22 @@ iter.deep <- function(graph, startNode, endNodes)
           from[nextNode] <- curNode
           stack <- c(stack, nextNode)
           
-          print(paste("Polagam na sklad vozlisce", vNames[nextNode]))
+          org <- changeCoordB(org, vNames[nextNode], ncol(graph))
+          #plotLabyrinth(org)
+          #Sys.sleep(0.1)
+          
+          #print(paste("Polagam na sklad vozlisce", vNames[nextNode]))
         }
       }
       
       if (!found)
       {
+        org <- removeCoordB(org, stack[length(stack)], ncol(graph))
         stack <- stack[-length(stack)]
-        print(paste("Odstranjujem s sklada vozlisce", vNames[curNode]))
+        #print(paste("Odstranjujem s sklada vozlisce", vNames[curNode]))
       }
     }
     
-    print("-------------------------------------------------")
+    #print("-------------------------------------------------")
   }
 }

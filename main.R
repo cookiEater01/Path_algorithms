@@ -82,7 +82,7 @@ setsOfCoords(g)
 ###############################################################################
 
 #izvedemo iterativni deep search
-idfs <- iter.deep(sosedje, trueStart, trueFinish)
+list[pot, idfs] <- iter.deep(sosedje, trueStart, trueFinish, data)
 
 i <- convertCoord(idfs, ncol(sosedje))
-pathMatrixes(data,i)
+pathMatrixes(pot,i)
