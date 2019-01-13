@@ -49,28 +49,6 @@ matrikaSosedov <- function(mx) {
 }
 
 
-pathMatrix <- function(data, col, row) {
-   mp <- matrix(data = -1, nrow = row, ncol = col)
-   data <- as.numeric(data)
-   for (num in data) {
-     line <- ceiling(num / col)
-     coll <- num - ((line - 1) * col)
-     mp[line, coll] <- -5
-   }
-   return(mp)
-}
-
-joinMatrixes <- function(org, path) {
-   for(l in c(1:nrow(org))) {
-     for (c in c(1:ncol(org))) {
-       if (path[l, c] != -5 || org[l, c] == -2 || org[l, c] == -3) {
-         path[l, c] <- org[l, c]
-       }
-     }
-   }
-   return(path)
-}
-
 pathMatrixes <- function(org, path) {
   for (rov in 3:nrow(path)-1) {
     org[path[rov,1],path[rov,2]] <- -8
