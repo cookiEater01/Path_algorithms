@@ -8,6 +8,10 @@ breadth.first <- function(graph, startNode, endNodes)
   startNode <- which(vNames %in% startNode)
   endNodes <- which(vNames %in% endNodes)
   
+  #število obdelanih vozlišč
+  stVozlisc <- 1
+  #št premikov na poti, brez prvega in zadnjega
+  stNaPoti <- -1
   
   queue <- vector()
   marked <- rep(FALSE, len = nrow(graph))
@@ -15,27 +19,33 @@ breadth.first <- function(graph, startNode, endNodes)
   
   marked[startNode] <- TRUE	
   queue <- c(queue, startNode)
-  print(paste("Dajem v vrsto vozlisce", vNames[startNode]))
+  #print(paste("Dajem v vrsto vozlisce", vNames[startNode]))
   
   
   while (length(queue) > 0)
   {
     curNode <- queue[1]
     queue <- queue[-1]
-    print(paste("Odstranjujem iz vrste vozlisce", vNames[curNode]))
+    stNaPoti<- stNaPoti - 1
+    #print(paste("Odstranjujem iz vrste vozlisce", vNames[curNode]))
     
     if (curNode %in% endNodes)
     {
-      print(paste("Resitev BFS v vozliscu", vNames[curNode]))
+      line <- ceiling(strtoi(vNames[curNode]) / sqrt(ncol(graph)))
+      coll <- strtoi(vNames[curNode]) - ((line - 1) * sqrt(ncol(graph)))
+      #print(paste("Resitev BFS v vozliscu", vNames[curNode]))
+      print(paste("Resitev BFS v vozliscu", line, coll))
       
-      path <- vNames[curNode]
+      coords <- vNames[curNode]
+      #path <- vNames[curNode]
       while (TRUE)
       {
         curNode <- from[curNode]
         if (curNode != -1)
-          path <- paste(path, "<--", vNames[curNode])
+          #path <- paste(path, "<--", vNames[curNode])
+          coords <- c(coords, vNames[curNode])
         else
-          return(path)
+          return(list(org, coords))
       }
     }
     
@@ -46,7 +56,9 @@ breadth.first <- function(graph, startNode, endNodes)
         marked[nextNode] <- TRUE
         from[nextNode] <- curNode
         queue <- c(queue, nextNode)
-        print(paste("Dajem v vrsto vozlisce", vNames[nextNode]))
+        stVozlisc <- stVozlisc + 1
+        stNaPoti <- stNaPoti + 1
+        #print(paste("Dajem v vrsto vozlisce", vNames[nextNode]))
       }
     }
   }
