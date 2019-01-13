@@ -38,6 +38,8 @@ breadth.first <- function(graph, startNode, endNodes, org)
       coll <- strtoi(vNames[curNode]) - ((line - 1) * sqrt(ncol(graph)))
       #print(paste("Resitev BFS v vozliscu", vNames[curNode]))
       print(paste("Resitev BFS v vozliscu", line, coll))
+      print(paste("Stevilo obravnavanih vozlisc:", stVozlisc))
+      print(paste("Stevilo vozlisc na poti:", stNaPoti))
       
       coords <- vNames[curNode]
       #path <- vNames[curNode]
