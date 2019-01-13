@@ -25,8 +25,8 @@ breadth.first <- function(graph, startNode, endNodes, org)
     curNode <- queue[1]
     queue <- queue[-1]
     org <- removeCoordB(org, vNames[curNode],ncol(graph))
-    plotLabyrinth(org)
-    Sys.sleep(0.1)
+    #plotLabyrinth(org)
+    #Sys.sleep(0.1)
     #print(paste("Odstranjujem iz vrste vozlisce", vNames[curNode]))
     
     if (curNode %in% endNodes)
@@ -36,6 +36,8 @@ breadth.first <- function(graph, startNode, endNodes, org)
       #print(paste("Resitev BFS v vozliscu", vNames[curNode]))
       print(paste("Resitev BFS v vozliscu", line, coll))
       print(paste("Stevilo obravnavanih vozlisc:", stVozlisc))
+      
+      plotLabyrinth(org)
       
       coords <- vNames[curNode]
       #path <- vNames[curNode]
@@ -60,8 +62,8 @@ breadth.first <- function(graph, startNode, endNodes, org)
         stVozlisc <- stVozlisc + 1
         
         org <- changeCoordB(org, vNames[nextNode], ncol(graph))
-        plotLabyrinth(org)
-        Sys.sleep(0.05)
+        #plotLabyrinth(org)
+        #Sys.sleep(0.05)
         
         #print(paste("Dajem v vrsto vozlisce", vNames[nextNode]))
       }
