@@ -29,7 +29,7 @@ breadth.first <- function(graph, startNode, endNodes, org)
     stNaPoti<- stNaPoti - 1
     org <- removeCoordB(org, vNames[curNode],ncol(graph))
     plotLabyrinth(org)
-    Sys.sleep(0.1)
+    Sys.sleep(0.05)
     #print(paste("Odstranjujem iz vrste vozlisce", vNames[curNode]))
     
     if (curNode %in% endNodes)

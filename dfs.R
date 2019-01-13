@@ -43,7 +43,7 @@ depth.first <- function(mtx, startNode, endNodes, org)
           #path <- paste(path, "<--", vNames[curNode])
           coords <- c(coords, vNames[curNode])
         } else
-          return(coords)
+          return(list(org, coords))
       }
     }
     

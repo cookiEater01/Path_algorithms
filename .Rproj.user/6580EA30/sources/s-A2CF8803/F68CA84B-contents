@@ -72,10 +72,11 @@ matrikaSosedov <- function(mx) {
 # }
 
 pathMatrixes <- function(org, path) {
-  for (rov in 2:nrow(path)) {
-    org[]
+  for (rov in 3:nrow(path)-1) {
+    org[path[rov,1],path[rov,2]] <- -8
+    plotLabyrinth(org)
+    Sys.sleep(0.1)
   }
-  return(path)
 }
 
 setsOfCoords <- function(data) {
