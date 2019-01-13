@@ -26,7 +26,7 @@ breadth.first <- function(graph, startNode, endNodes, org)
     queue <- queue[-1]
     org <- removeCoordB(org, vNames[curNode],ncol(graph))
     plotLabyrinth(org)
-    Sys.sleep(0.05)
+    Sys.sleep(0.1)
     #print(paste("Odstranjujem iz vrste vozlisce", vNames[curNode]))
     
     if (curNode %in% endNodes)
