@@ -11,6 +11,8 @@ depth.first <- function(mtx, startNode, endNodes, org)
   #število obdelanih vozlišč
   stVozlisc <- 1
   
+  tOrg <- org
+  
   stack <- vector()
   marked <- rep(FALSE, len = nrow(mtx))
   from <- rep(-1, len = nrow(mtx))
@@ -62,7 +64,7 @@ depth.first <- function(mtx, startNode, endNodes, org)
     }
     else
     {
-      org <- removeCoord(org, stack[length(stack)], stack[length(stack)-1], ncol(mtx))
+      org <- removeCoord(org, stack[length(stack)], stack[length(stack)-1], ncol(mtx), tOrg)
       plotLabyrinth(org)
       Sys.sleep(0.1)
       stack <- stack[-length(stack)]

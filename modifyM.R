@@ -103,12 +103,12 @@ changeCoordB <- function(data, pos, size) {
   return(data)
 }
 
-removeCoord <- function(data, pos, prevPos, size) {
+removeCoord <- function(data, pos, prevPos, size, org) {
   s2 <- sqrt(size)
   line <- ceiling(strtoi(pos) / s2)
   coll <- strtoi(pos) - ((line - 1) * s2)
   if (data[line, coll] < -3) {
-    data[line, coll] <- 4
+    data[line, coll] <- org[line, coll]
   }
   line <- ceiling(strtoi(prevPos) / s2)
   coll <- strtoi(prevPos) - ((line - 1) * s2)
