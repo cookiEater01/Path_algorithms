@@ -5,6 +5,7 @@
 source("dfs.R")
 source("bfs.R")
 source("iddfs.R")
+source("aStar.R")
 source("izris.R")
 source("modifyM.R")
 #install.packages("gsubfn")
@@ -104,3 +105,12 @@ pathMatrixes(pot,i)
 
 #izpišemo rešitev
 setsOfCoords(i)
+
+###############################################################################
+#                                 A*                                          #
+###############################################################################
+
+as <- a.star(sosedje, trueStart, trueFinish)
+
+a <- convertCoord(as, ncol(sosedje))
+pathMatrixes(data, a)

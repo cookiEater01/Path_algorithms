@@ -35,14 +35,16 @@ a.star <- function(graph, startNode, endNodes)
     {
       print(paste("Resitev A* v vozliscu", vNames[curNode]))
       
-      path <- vNames[curNode]
+      #path <- vNames[curNode]
+      coord <- vNames[curNode]
       while (TRUE)
       {
         curNode <- from[curNode]
         if (curNode != -1)
-          path <- paste(path, "<--", vNames[curNode])
+          #path <- paste(path, "<--", vNames[curNode])
+          coord <- c(coord, vNames[curNode])
         else
-          return(path)
+          return(coord)
       }
     }
     
