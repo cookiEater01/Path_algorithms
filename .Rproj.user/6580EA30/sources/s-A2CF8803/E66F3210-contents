@@ -48,7 +48,7 @@ breadth.first <- function(graph, startNode, endNodes, org)
           #path <- paste(path, "<--", vNames[curNode])
           coords <- c(coords, vNames[curNode])
         else
-          return(coords)
+          return(list(org,coords))
       }
     }
     
@@ -64,7 +64,7 @@ breadth.first <- function(graph, startNode, endNodes, org)
         
         org <- changeCoordB(org, vNames[nextNode], ncol(graph))
         plotLabyrinth(org)
-        Sys.sleep(0.1)
+        Sys.sleep(0.05)
         
         #print(paste("Dajem v vrsto vozlisce", vNames[nextNode]))
       }

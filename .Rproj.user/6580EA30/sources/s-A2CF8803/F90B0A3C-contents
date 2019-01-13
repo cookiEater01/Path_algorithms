@@ -6,6 +6,8 @@ source("dfs.R")
 source("bfs.R")
 source("izris.R")
 source("modifyM.R")
+#install.packages("gsubfn")
+library("gsubfn")
 
 ###############################################################################
 #                        PRIPRAVIMO PODATKE                                   #
@@ -72,7 +74,7 @@ setsOfCoords(f)
 ###############################################################################
 
 #naredimo bfs
-bfs <- breadth.first(sosedje, trueStart, trueFinish, data)
+list[pot,bfs] <- breadth.first(sosedje, trueStart, trueFinish, data)
 
 g <- convertCoord(bfs, ncol(sosedje))
 #izpišemo rešitev
