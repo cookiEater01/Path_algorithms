@@ -5,17 +5,17 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3124285127",
+    "hash" : "0",
     "id" : "B5C0387D",
-    "lastKnownWriteTime" : 1547366297,
-    "last_content_update" : 1547366297685,
+    "lastKnownWriteTime" : 1547374000,
+    "last_content_update" : 1547374000924,
     "path" : "~/GitHub/Path_algorithms/izris.R",
     "project_path" : "izris.R",
     "properties" : {
-        "cursorPosition" : "31,0",
-        "scrollLine" : "6"
+        "cursorPosition" : "2,0",
+        "scrollLine" : "0"
     },
-    "relative_order" : 2,
+    "relative_order" : 1,
     "source_on_save" : true,
     "source_window" : "",
     "type" : "r_source"

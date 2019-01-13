@@ -29,6 +29,10 @@ plotLabyrinth <- function(lab)
 	#pot
 	sel <- lab[,] == -5
 	lab[sel] <- rgb(0.6, 1, 0.6)
+	
+	#glava poti
+	sel <- lab[,] == -6
+	lab[sel] <- rgb(1, 0.6, 0)
 
 	grid.newpage()
 	grid.raster(lab, interpolate=F)

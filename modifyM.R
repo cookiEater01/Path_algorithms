@@ -73,8 +73,51 @@ joinMatrixes <- function(org, path) {
 
 setsOfCoords <- function(data) {
   sol <- c()
-  for (coor in 2:length(data)) {
-    sol <- paste("(", data[coor], data[coor-1],")", sol)
+  for (coor in nrow(data):1) {
+    sol <- paste(sol, paste("(", data[coor,1],",", data[coor,2],")", sep=""))
   }
   return(sol)
+}
+
+convertCoord <- function(data, size) {
+  koordinate <- matrix(ncol=2, nrow=length(data))
+  s2 <- sqrt(size)
+  for (coor in 1:length(data)) {
+    line <- ceiling(strtoi(data[coor]) / s2)
+    coll <- strtoi(data[coor]) - ((line - 1) * s2)
+    koordinate[coor, 1] <- line
+    koordinate[coor, 2] <- coll
+  }
+  return(koordinate)
+}
+
+
+changeCoord <- function(data, pos, prevPos, size) {
+  s2 <- sqrt(size)
+  line <- ceiling(strtoi(pos) / s2)
+  coll <- strtoi(pos) - ((line - 1) * s2)
+  if (data[line, coll] > 0) {
+    data[line, coll] <- -6 
+  }
+  line <- ceiling(strtoi(prevPos) / s2)
+  coll <- strtoi(prevPos) - ((line - 1) * s2)
+  if (data[line, coll] == -6) {
+    data[line, coll] <- -5
+  }
+  return(data)
+}
+
+removeCoord <- function(data, pos, prevPos, size) {
+  s2 <- sqrt(size)
+  line <- ceiling(strtoi(pos) / s2)
+  coll <- strtoi(pos) - ((line - 1) * s2)
+  if (data[line, coll] < -3) {
+    data[line, coll] <- 4
+  }
+  line <- ceiling(strtoi(prevPos) / s2)
+  coll <- strtoi(prevPos) - ((line - 1) * s2)
+  if (data[line, coll] < -3 || data[line, coll] > 0) {
+    data[line, coll] <- -6
+  }
+  return(data)
 }

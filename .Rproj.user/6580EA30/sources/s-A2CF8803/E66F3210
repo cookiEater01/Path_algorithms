@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1547369310733.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E66F3210",
+    "lastKnownWriteTime" : 1547375378,
+    "last_content_update" : 1547375378522,
+    "path" : "~/GitHub/Path_algorithms/bfs.R",
+    "project_path" : "bfs.R",
+    "properties" : {
+        "cursorPosition" : "47,35",
+        "scrollLine" : "3",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

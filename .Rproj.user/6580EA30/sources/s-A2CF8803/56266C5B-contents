@@ -1,4 +1,4 @@
-depth.first <- function(mtx, startNode, endNodes)
+depth.first <- function(mtx, startNode, endNodes, org)
 {
   if (is.null(rownames(mtx)))
     vNames <- 1:nrow(mtx)
@@ -57,10 +57,18 @@ depth.first <- function(mtx, startNode, endNodes)
       stVozlisc <- stVozlisc + 1
       stNaPoti <- stNaPoti + 1
       
+      org <- changeCoord(org, vNames[nextNode], stack[length(stack) - 1], ncol(mtx))
+      plotLabyrinth(org)
+      Sys.sleep(0.1)
+      
+      
       #print(paste("Polagam na sklad vozlisce", vNames[nextNode]))
     }
     else
     {
+      org <- removeCoord(org, stack[length(stack)], stack[length(stack)-1], ncol(mtx))
+      plotLabyrinth(org)
+      Sys.sleep(0.1)
       stack <- stack[-length(stack)]
       stNaPoti <- stNaPoti - 1
       #print(paste("Odstranjujem s sklada vozlisce", vNames[curNode]))
