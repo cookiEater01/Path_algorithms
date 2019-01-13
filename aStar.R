@@ -1,4 +1,4 @@
-a.star <- function(graph, startNode, endNodes)
+a.star <- function(graph, startNode, endNodes, org)
 {
   if (is.null(rownames(graph)))
     vNames <- 1:nrow(graph)
@@ -20,7 +20,7 @@ a.star <- function(graph, startNode, endNodes)
   from <- rep(-1, len = nrow(graph))
   
   open[startNode] <- TRUE
-  print(paste("Odpiram vozlisce", vNames[startNode]))
+  #print(paste("Odpiram vozlisce", vNames[startNode]))
   
   while (any(open))
   {
@@ -29,12 +29,12 @@ a.star <- function(graph, startNode, endNodes)
     
     open[curNode] <- FALSE
     closed[curNode] <- TRUE
-    print(paste("Zapiram vozlisce", vNames[curNode]))
+    #print(paste("Zapiram vozlisce", vNames[curNode]))
     
     if (curNode %in% endNodes)
     {
-      print(paste("Resitev A* v vozliscu", vNames[curNode]))
-      
+      #print(paste("Resitev A* v vozliscu", vNames[curNode]))
+      plotLabyrinth(org)
       #path <- vNames[curNode]
       coord <- vNames[curNode]
       while (TRUE)
@@ -44,7 +44,7 @@ a.star <- function(graph, startNode, endNodes)
           #path <- paste(path, "<--", vNames[curNode])
           coord <- c(coord, vNames[curNode])
         else
-          return(coord)
+          return(list(org, coord))
       }
     }
     
@@ -53,7 +53,8 @@ a.star <- function(graph, startNode, endNodes)
       if (!is.na(graph[curNode, nextNode]) && !closed[nextNode])
       {
         if (!open[nextNode])
-          print(paste("Odpiram vozlisce", vNames[nextNode])) 
+          org <- changeCoordB(org, vNames[nextNode], ncol(graph))
+          #print(paste("Odpiram vozlisce", vNames[nextNode])) 
         
         open[nextNode] <- TRUE
         dist <- gScore[curNode] + graph[curNode, nextNode]
@@ -63,7 +64,7 @@ a.star <- function(graph, startNode, endNodes)
           from[nextNode] <- curNode
           gScore[nextNode] <- dist
           fScore[nextNode] <- gScore[nextNode]
-          print(paste("Posodabljam vozlisce", vNames[nextNode]))
+          #print(paste("Posodabljam vozlisce", vNames[nextNode]))
         }
       }
     }

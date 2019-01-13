@@ -110,7 +110,15 @@ setsOfCoords(i)
 #                                 A*                                          #
 ###############################################################################
 
-as <- a.star(sosedje, trueStart, trueFinish)
+list[pot,as] <- a.star(sosedje, trueStart, trueFinish, data)
 
 a <- convertCoord(as, ncol(sosedje))
-pathMatrixes(data, a)
+
+print(paste("Stevilo vozlisc na poti:", nrow(a)))
+printPrice(a, data)
+
+
+pathMatrixes(pot, a)
+
+#izpišemo rešitev
+setsOfCoords(a)

@@ -98,7 +98,7 @@ changeCoordB <- function(data, pos, size) {
   line <- ceiling(strtoi(pos) / s2)
   coll <- strtoi(pos) - ((line - 1) * s2)
   if (data[line, coll] > 0) {
-    data[line, coll] <- -6 
+    data[line, coll] <- -5 
   }
   return(data)
 }
