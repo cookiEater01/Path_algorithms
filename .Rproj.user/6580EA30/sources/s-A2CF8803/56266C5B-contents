@@ -7,10 +7,11 @@ depth.first <- function(mtx, startNode, endNodes)
   
   startNode <- which(vNames %in% startNode)
   endNodes <- which(vNames %in% endNodes)
-  print(endNodes)
   
   #število obdelanih vozlišč
-  stVozlisc <- 0
+  stVozlisc <- 1
+  #št premikov na poti, brez prvega in zadnjega
+  stNaPoti <- -1
   
   stack <- vector()
   marked <- rep(FALSE, len = nrow(mtx))
@@ -18,7 +19,7 @@ depth.first <- function(mtx, startNode, endNodes)
   
   marked[startNode] <- TRUE	
   stack <- c(stack, startNode)
-  print(paste("Polagam na sklad vozlisce", vNames[startNode]))
+  #print(paste("Polagam na sklad vozlisce", vNames[startNode])
   
   
   while (length(stack) > 0)
@@ -29,15 +30,18 @@ depth.first <- function(mtx, startNode, endNodes)
     {
       print(paste("Resitev DFS v vozliscu", vNames[curNode]))
       print(paste("Stevilo obravnavanih vozlisc:", stVozlisc))
+      print(paste("Stevilo vozlisc na poti:", stNaPoti))
       
-      path <- vNames[curNode]
+      #path <- vNames[curNode]
+      coords <- vNames[curNode]
       while (TRUE)
       {
         curNode <- from[curNode]
-        if (curNode != -1)
-          path <- paste(path, "<--", vNames[curNode])
-        else
-          return(path)
+        if (curNode != -1) {
+          #path <- paste(path, "<--", vNames[curNode])
+          coords <- c(coords, vNames[curNode])
+        } else
+          return(coords)
       }
     }
     
@@ -49,13 +53,15 @@ depth.first <- function(mtx, startNode, endNodes)
       from[nextNode] <- curNode
       stack <- c(stack, nextNode)
       stVozlisc <- stVozlisc + 1
+      stNaPoti <- stNaPoti + 1
       
-      print(paste("Polagam na sklad vozlisce", vNames[nextNode]))
+      #print(paste("Polagam na sklad vozlisce", vNames[nextNode]))
     }
     else
     {
       stack <- stack[-length(stack)]
-      print(paste("Odstranjujem s sklada vozlisce", vNames[curNode]))
+      stNaPoti <- stNaPoti - 1
+      #print(paste("Odstranjujem s sklada vozlisce", vNames[curNode]))
     }
   }
 }
