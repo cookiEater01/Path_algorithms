@@ -4,6 +4,7 @@
 
 source("dfs.R")
 source("bfs.R")
+source("iddfs.R")
 source("izris.R")
 source("modifyM.R")
 #install.packages("gsubfn")
@@ -76,3 +77,12 @@ pathMatrixes(pot,g)
 #izpišemo rešitev
 setsOfCoords(g)
 
+###############################################################################
+#                                 IDFS                                        #
+###############################################################################
+
+#izvedemo iterativni deep search
+idfs <- iter.deep(sosedje, trueStart, trueFinish)
+
+i <- convertCoord(idfs, ncol(sosedje))
+pathMatrixes(data,i)
