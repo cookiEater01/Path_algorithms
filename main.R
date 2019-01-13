@@ -6,6 +6,8 @@ source("dfs.R")
 source("bfs.R")
 source("izris.R")
 source("modifyM.R")
+#install.packages("gsubfn")
+library("gsubfn")
 
 ###############################################################################
 #                        PRIPRAVIMO PODATKE                                   #
@@ -50,21 +52,13 @@ sosedje <- rename(sosedje)
 
 
 #naredimo dfs
-dfs <- depth.first(sosedje, trueStart, trueFinish, data)
+list[pot,dfs] <- depth.first(sosedje, trueStart, trueFinish, data)
 
 f <- convertCoord(dfs, ncol(sosedje))
-
+pathMatrixes(pot, f)
 #izpišemo rešitev
 setsOfCoords(f)
 
-# #naredimo novo matriko z potjo
-# pathM <- pathMatrix(dfs, ncol(data), nrow(data))
-# 
-# #zdržimo še podatke splepih poti, starta in finisha
-# pathM <- joinMatrixes(data, pathM)
-# 
-# #izrisemo pot in labirint
-# screen <- plotLabyrinth(pathM)
 
 
 ###############################################################################
@@ -72,17 +66,13 @@ setsOfCoords(f)
 ###############################################################################
 
 #naredimo bfs
-bfs <- breadth.first(sosedje, trueStart, trueFinish, data)
+list[pot,bfs] <- breadth.first(sosedje, trueStart, trueFinish, data)
+
 
 g <- convertCoord(bfs, ncol(sosedje))
+pathMatrixes(pot,g)
+#plotLabyrinth(pathMatrixes(pot,g))
+
 #izpišemo rešitev
 setsOfCoords(g)
 
-# #naredimo novo matriko z potjo
-# pathM <- pathMatrix(bfs, ncol(data), nrow(data))
-# 
-# #zdržimo še podatke splepih poti, starta in finisha
-# pathM <- joinMatrixes(data, pathM)
-# 
-# #izrisemo pot in labirint
-# screen <- plotLabyrinth(pathM)
