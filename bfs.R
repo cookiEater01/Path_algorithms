@@ -1,4 +1,4 @@
-breadth.first <- function(graph, startNode, endNodes)
+breadth.first <- function(graph, startNode, endNodes, org)
 {
   if (is.null(rownames(graph)))
     vNames <- 1:nrow(graph)
@@ -27,6 +27,9 @@ breadth.first <- function(graph, startNode, endNodes)
     curNode <- queue[1]
     queue <- queue[-1]
     stNaPoti<- stNaPoti - 1
+    org <- removeCoordB(org, vNames[curNode],ncol(graph))
+    plotLabyrinth(org)
+    Sys.sleep(0.1)
     #print(paste("Odstranjujem iz vrste vozlisce", vNames[curNode]))
     
     if (curNode %in% endNodes)
@@ -45,7 +48,7 @@ breadth.first <- function(graph, startNode, endNodes)
           #path <- paste(path, "<--", vNames[curNode])
           coords <- c(coords, vNames[curNode])
         else
-          return(list(org, coords))
+          return(coords)
       }
     }
     
@@ -58,6 +61,11 @@ breadth.first <- function(graph, startNode, endNodes)
         queue <- c(queue, nextNode)
         stVozlisc <- stVozlisc + 1
         stNaPoti <- stNaPoti + 1
+        
+        org <- changeCoordB(org, vNames[nextNode], ncol(graph))
+        plotLabyrinth(org)
+        Sys.sleep(0.1)
+        
         #print(paste("Dajem v vrsto vozlisce", vNames[nextNode]))
       }
     }

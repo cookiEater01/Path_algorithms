@@ -12,7 +12,7 @@ source("modifyM.R")
 ###############################################################################
 
 
-data <- read.table("labyrinth_1.txt", sep=",", header=F)
+data <- read.table("labyrinth_2.txt", sep=",", header=F)
 data <- as.matrix(data)
 
 #preimenujemo zaradi lažjega branja
@@ -52,19 +52,19 @@ sosedje <- rename(sosedje)
 #naredimo dfs
 dfs <- depth.first(sosedje, trueStart, trueFinish, data)
 
-f <- convertCoord(b, ncol(sosedje))
+f <- convertCoord(dfs, ncol(sosedje))
 
 #izpišemo rešitev
 setsOfCoords(f)
 
-#naredimo novo matriko z potjo
-pathM <- pathMatrix(dfs, ncol(data), nrow(data))
-
-#zdržimo še podatke splepih poti, starta in finisha
-pathM <- joinMatrixes(data, pathM)
-
-#izrisemo pot in labirint
-screen <- plotLabyrinth(pathM)
+# #naredimo novo matriko z potjo
+# pathM <- pathMatrix(dfs, ncol(data), nrow(data))
+# 
+# #zdržimo še podatke splepih poti, starta in finisha
+# pathM <- joinMatrixes(data, pathM)
+# 
+# #izrisemo pot in labirint
+# screen <- plotLabyrinth(pathM)
 
 
 ###############################################################################
@@ -72,16 +72,17 @@ screen <- plotLabyrinth(pathM)
 ###############################################################################
 
 #naredimo bfs
-bfs <- breadth.first(sosedje, trueStart, trueFinish)
-bfs
+bfs <- breadth.first(sosedje, trueStart, trueFinish, data)
+
+g <- convertCoord(bfs, ncol(sosedje))
 #izpišemo rešitev
-setsOfCoords(bfs)
+setsOfCoords(g)
 
-#naredimo novo matriko z potjo
-pathM <- pathMatrix(bfs, ncol(data), nrow(data))
-
-#zdržimo še podatke splepih poti, starta in finisha
-pathM <- joinMatrixes(data, pathM)
-
-#izrisemo pot in labirint
-screen <- plotLabyrinth(pathM)
+# #naredimo novo matriko z potjo
+# pathM <- pathMatrix(bfs, ncol(data), nrow(data))
+# 
+# #zdržimo še podatke splepih poti, starta in finisha
+# pathM <- joinMatrixes(data, pathM)
+# 
+# #izrisemo pot in labirint
+# screen <- plotLabyrinth(pathM)
