@@ -30,21 +30,6 @@
                 "path" : "~/GitHub/Path_algorithms/test.R",
                 "state" : 1,
                 "type" : 1
-            },
-            {
-                "editor_line_number" : 177,
-                "editor_state" : 1,
-                "function_name" : "mainA",
-                "function_steps" : "30",
-                "id" : 13,
-                "is_package_breakpoint" : false,
-                "is_pending_debug_completion" : false,
-                "line_number" : 177,
-                "needs_updated_steps" : true,
-                "package_name" : "",
-                "path" : "~/GitHub/Path_algorithms/semi2AlgA.R",
-                "state" : 1,
-                "type" : 0
             }
         ]
     }

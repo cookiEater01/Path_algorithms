@@ -1,3 +1,4 @@
+source("modifyM.R")
 library(grid)
 plotLabyrinth <- function(lab)
 {
@@ -141,3 +142,5 @@ screen <- plotLabyrinth(data)
 mx=meja(data)
 a=getPath(mx,which(data == -2, TRUE))
 getPoints(data,a)
+print(paste("Stevilo vozlisc na poti:", nrow(a)))
+setsOfCoords(a)
