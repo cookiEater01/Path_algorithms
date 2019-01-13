@@ -59,6 +59,8 @@ f <- convertCoord(dfs, ncol(sosedje))
 
 print(paste("Stevilo vozlisc na poti:", nrow(f)))
 
+printPrice(f, data)
+
 pathMatrixes(pot, f)
 #izpišemo rešitev
 setsOfCoords(f)
@@ -75,6 +77,8 @@ list[pot,bfs] <- breadth.first(sosedje, trueStart, trueFinish, data)
 g <- convertCoord(bfs, ncol(sosedje))
 
 print(paste("Stevilo vozlisc na poti:", nrow(g)))
+
+printPrice(g, data)
 
 pathMatrixes(pot,g)
 #plotLabyrinth(pathMatrixes(pot,g))
@@ -94,5 +98,9 @@ i <- convertCoord(idfs, ncol(sosedje))
 print(paste("Stevilo obravnavanih ogljisc: ", nrow(which(pot == -5, T))))
 print(paste("Stevilo vozlisc na poti:", nrow(i)))
 
+printPrice(i, data)
 
 pathMatrixes(pot,i)
+
+#izpišemo rešitev
+setsOfCoords(i)

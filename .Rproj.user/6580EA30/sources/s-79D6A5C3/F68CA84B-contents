@@ -149,3 +149,11 @@ removeCoordB <- function(data, pos, size) {
   }
   return(data)
 }
+
+printPrice <- function(pot, data) {
+  cena <- 0
+  for (korak in 3:nrow(pot)-1) {
+    cena <- cena + data[pot[korak, 1], pot[korak, 2]]
+  }
+  return(cena)
+}
