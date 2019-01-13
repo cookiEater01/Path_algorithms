@@ -1,4 +1,4 @@
-a.star <- function(graph, startNode, endNodes, hCost)
+a.star <- function(graph, startNode, endNodes)
 {
   if (is.null(rownames(graph)))
     vNames <- 1:nrow(graph)
@@ -16,7 +16,6 @@ a.star <- function(graph, startNode, endNodes, hCost)
   gScore[startNode] <- 0
   
   fScore <- rep(Inf, len = nrow(graph))
-  fScore[startNode] <- hCost[startNode]
   
   from <- rep(-1, len = nrow(graph))
   
@@ -61,7 +60,7 @@ a.star <- function(graph, startNode, endNodes, hCost)
         {
           from[nextNode] <- curNode
           gScore[nextNode] <- dist
-          fScore[nextNode] <- gScore[nextNode] + hCost[nextNode]
+          fScore[nextNode] <- gScore[nextNode]
           print(paste("Posodabljam vozlisce", vNames[nextNode]))
         }
       }
